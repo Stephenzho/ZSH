@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.stephen.commons.user.dao.UserDao">
+
+    <!-- 开启基于redis的二级缓存 -->
+<!--    <cache tyio.stephen.commonssmmon.cache.RedisCache"/>-->
+
+
+    <select id="selectUser" resultType="io.stephen.commons.domain.entity.User" parameterType="Map">
+        SELECT
+            *
+        FROM
+            a_user
+        <where>
+            <if test="null != userID">
+               AND userID = #{userID}
+            </if>
+            <if test="null != userName">
+                AND userName = #{userName}
+            </if>
+        </where>
+    </select>
+
+    <!-- 更新用户表 -->
+    <update id="updateUserBean" parameterType="io.stephen.commons.domain.entity.User" flushCache="true">
+        UPDATE a_user
+        SET
+          userName = #{userName},
+          sex = #{sex}
+        WHERE id = #{id} LIMIT 1
+    </update>
+</mapper>

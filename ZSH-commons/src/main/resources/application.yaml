@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  context-path: /
+spring:
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://zhoudb.cvi8c37xsqav.us-west-2.rds.amazonaws.com:3306/zhouDB
+    username: stephen
+    password: zhou104477
+    driver-class-name: org.gjt.mm.mysql.Driver
+
+# mybatis配置
+mybatis:
+  # 配置映射类所在包名
+  type-aliases-package: io.stephen.commonss.domain.entity
+  # 配置mapper xml文件所在路径，这里是一个数组
+  config-locations: classpath:/mybatis-config.xml
+  mapper-locations: classpath:/sqlmappers/*.xml
+
+
+
+logging:
+  level: INFO
+
+jwt:
+    secret: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+    expiration: 1000000000000
+
+
+management:
+  security:
+    enabled: false
+
+
+
+
+
