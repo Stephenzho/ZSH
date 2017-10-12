@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
   context-path: /
 spring:
   # 数据库配置
@@ -8,6 +8,8 @@ spring:
     username: stephen
     password: zhou104477
     driver-class-name: org.gjt.mm.mysql.Driver
+  application:
+    name: commons-client
 
 # mybatis配置
 mybatis:
@@ -27,9 +29,10 @@ jwt:
     expiration: 1000000000000
 
 
-management:
-  security:
-    enabled: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka/
 
 
 

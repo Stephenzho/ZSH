@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ZSHApplication {
+public class ZSHCommonsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZSHApplication.class, args);
+        SpringApplication.run(ZSHCommonsApplication.class, args);
     }
 }
