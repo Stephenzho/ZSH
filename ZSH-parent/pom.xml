@@ -6,11 +6,12 @@
     <packaging>pom</packaging>
     <properties>
         <ZSH.version>1.0.0-SNAPSHOT</ZSH.version>
+        <ZSH-security>1.0</ZSH-security>
     </properties>
 
     <groupId>io.stephen.ZSH</groupId>
     <artifactId>ZSH-parent</artifactId>
-    <version>ZSH.version</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <profiles>
         <profile>
@@ -34,7 +35,24 @@
         <module>../ZSH-user</module>
         <module>../ZSH-commons</module>
         <module>../ZSH-security-core</module>
+        <module>../ZSH-security-demo</module>
+        <module>../ZSH-security-app</module>
+        <module>../ZSH-security-browser</module>
     </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 <!--    <parent>
         <groupId>org.springframework.boot</groupId>
@@ -162,15 +180,6 @@
             <artifactId>commons-beanutils</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 
 </project>

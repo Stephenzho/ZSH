@@ -5,7 +5,8 @@
     <parent>
         <artifactId>ZSH-parent</artifactId>
         <groupId>io.stephen.ZSH</groupId>
-        <version>ZSH.version</version>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../ZSH-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
