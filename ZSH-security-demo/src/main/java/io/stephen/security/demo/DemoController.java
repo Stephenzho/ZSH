@@ -2,8 +2,7 @@ package io.stephen.security.demo;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import io.stephen.security.dto.User;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import io.stephen.security.exceptionHandle.CommonException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +14,17 @@ import java.util.Map;
  * @author 10447
  * @since 2017/10/29
  */
-@SpringBootApplication
 @RestController
 @RequestMapping("/user")
-public class DemoApplication {
+public class DemoController {
+
+    @GetMapping("/ex")
+    public void testException() throws Exception {
+        throw new CommonException("1212");
+    }
+
+
+
 
     /**
      * @Valid 开启 notBlock注解验证，BindingResult为验证错误信息结果
@@ -78,9 +84,5 @@ public class DemoApplication {
         return user;
     }
 
-
-    public static void main(String[] arg) {
-        SpringApplication.run(DemoApplication.class, arg);
-    }
 
 }

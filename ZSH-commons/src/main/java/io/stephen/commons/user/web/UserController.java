@@ -56,11 +56,12 @@ public class UserController {
     }
 
 
-    @GetMapping()
-    public User getUser(@PathVariable String id) {
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable String id) throws Exception {
         System.out.println("获取用户ID为"+id+"的用户。");
-        return null;
+        throw new Exception("我日");
     }
+
 
 
 }

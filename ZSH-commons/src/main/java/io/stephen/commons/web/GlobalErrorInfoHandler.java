@@ -1,21 +1,21 @@
 package io.stephen.commons.web;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 10447
  * @since 2017/8/4
  */
-@RestControllerAdvice
+@ControllerAdvice
 public class GlobalErrorInfoHandler {
 
 
     @ExceptionHandler(value = Exception.class)
-    public ResultBody errorHandlerOverJson(HttpServletRequest request, Exception exception) {
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResultBody errorHandlerOverJson(Exception exception) {
 
         String message = exception.getMessage();
 

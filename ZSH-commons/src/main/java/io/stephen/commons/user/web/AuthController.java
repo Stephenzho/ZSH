@@ -72,6 +72,9 @@ public class AuthController {
     }
 
 
-
+    @GetMapping()
+    public void ex() throws Exception {
+        throw new Exception("┏┛墓┗┓...(((m -__-)m");
+    }
 
 }
