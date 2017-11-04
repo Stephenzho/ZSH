@@ -1,6 +1,7 @@
 package io.stephen.demo.controller;
 
 import io.stephen.security.demo.DemoController;
+import io.stephen.security.demo.FileController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,8 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @since 2017/10/29
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = DemoController.class)
-@SpringBootConfiguration
+@SpringBootTest(classes = {DemoController.class, FileController.class})
 public class ControllerTest {
 
     @Autowired
@@ -47,8 +47,8 @@ public class ControllerTest {
 
     @Test
     public void textUpLoad() throws Exception {
-        String file = mockMvc.perform(fileUpload("/user/file")
-                .file(new MockMultipartFile("multicastFile","test.txt","multipart/form-data","laval".getBytes("UTF-8"))))
+        String file = mockMvc.perform(fileUpload("/file")
+                .file(new MockMultipartFile("file","test.txt","multipart/form-data","laval".getBytes("UTF-8"))))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
 
