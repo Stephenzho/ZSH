@@ -15,11 +15,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.stephen.ZSH</groupId>
-            <artifactId>ZSH-security-core</artifactId>
-            <version>${ZSH.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session</artifactId>
         </dependency>

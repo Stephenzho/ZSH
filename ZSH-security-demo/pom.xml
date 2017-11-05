@@ -16,20 +16,9 @@
     <dependencies>
         <dependency>
             <groupId>io.stephen.ZSH</groupId>
-            <artifactId>ZSH-security-core</artifactId>
+            <artifactId>ZSH-security-browser</artifactId>
             <version>${ZSH.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>4.3.8.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>io.stephen.ZSH</groupId>
-            <artifactId>ZSH-commons</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
     </dependencies>
 
     <build>

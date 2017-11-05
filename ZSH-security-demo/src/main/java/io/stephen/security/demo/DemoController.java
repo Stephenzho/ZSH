@@ -8,7 +8,6 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.validation.Valid;
 
@@ -19,6 +18,8 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class DemoController {
+
+
 
     @GetMapping("/ex")
     public void testException() throws Exception {
