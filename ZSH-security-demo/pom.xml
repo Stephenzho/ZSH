@@ -19,6 +19,11 @@
             <artifactId>ZSH-security-browser</artifactId>
             <version>${ZSH.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.stephen.ZSH</groupId>
+            <artifactId>ZSH-security-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

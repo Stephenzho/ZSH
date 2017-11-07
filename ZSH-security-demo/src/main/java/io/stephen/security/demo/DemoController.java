@@ -2,7 +2,7 @@ package io.stephen.security.demo;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import io.stephen.security.dto.User;
-import io.stephen.security.exceptionHandle.CommonException;
+import io.stephen.core.exceptionHandle.CommonException;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.validation.BindingResult;
@@ -23,7 +23,7 @@ public class DemoController {
 
     @GetMapping("/ex")
     public void testException() throws Exception {
-        throw new CommonException("1212");
+        throw new CommonException("1212","内部错误");
     }
 
 

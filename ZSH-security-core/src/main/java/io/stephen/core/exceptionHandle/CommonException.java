@@ -1,4 +1,4 @@
-package io.stephen.security.exceptionHandle;
+package io.stephen.core.exceptionHandle;
 
 /**
  * 通用异常
@@ -9,8 +9,8 @@ public class CommonException extends Exception {
 
     private String id;
 
-    public CommonException(String id) {
-        super("内部出错");
+    public CommonException(String id,String msg) {
+        super(msg);
         this.id = id;
     }
 
