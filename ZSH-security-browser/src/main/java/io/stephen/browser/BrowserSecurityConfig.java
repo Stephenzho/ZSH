@@ -1,5 +1,7 @@
 package io.stephen.browser;
 
+import io.stephen.browser.authentication.ZSHAuthenticationFailureHandler;
+import io.stephen.browser.authentication.ZSHAuthenticationSuccessHandler;
 import io.stephen.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,18 +33,33 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
+    /**
+     * 登陆失败处理
+     */
+    @Autowired
+    private ZSHAuthenticationFailureHandler zshAuthenticationFailureHandler;
+
+    /**
+     * 登陆成功处理
+     */
+    @Autowired
+    private ZSHAuthenticationSuccessHandler zshAuthenticationSuccessHandler;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.formLogin()
-                .loginPage("/authentication/require")       // 未登陆时重定向到这url
                 .loginProcessingUrl("/authentication/form")
+                .loginPage("/authentication/require")       // 未登陆时重定向到这url
+                .successHandler(zshAuthenticationSuccessHandler)
+                .failureHandler(zshAuthenticationFailureHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authentication/require",securityProperties.getLoginPath()).permitAll()     // 去掉该url的认证布奏
+                .antMatchers("/authentication/require",securityProperties.getLoginPath(),"/login","/authentication/form").permitAll()     // 去掉该url的认证布奏
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                .and().csrf().disable();
 
     }
 }

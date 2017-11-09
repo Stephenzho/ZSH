@@ -58,14 +58,16 @@ public class BrowserSercurityController {
 
             logger.debug(redirectUrl+"跳转到此，");
 
-            /*
-
-             */
-            if (StringUtils.endsWithIgnoreCase(redirectUrl,".html"))
-                redireStrategy.sendRedirect(request, response, securityProperties.getLoginPath());
-
         }
-        throw new CommonException("401","请引导用户进行授权");
+
+        String useragent = request.getHeader("User-Agent");
+        System.out.println(useragent);
+
+        if (useragent.startsWith("Mozilla/5.0"))
+            redireStrategy.sendRedirect(request, response, securityProperties.getLoginPath());
+        else
+            throw new CommonException("401","请引导用户进行授权");
+
     }
 
 }
