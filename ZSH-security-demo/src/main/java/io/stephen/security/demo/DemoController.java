@@ -1,10 +1,13 @@
 package io.stephen.security.demo;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import io.stephen.security.dto.User;
 import io.stephen.core.exceptionHandle.CommonException;
+import io.stephen.security.dto.User;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,15 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class DemoController {
 
+    /**
+     * 返回认证信息,@AuthenticationPrincipal 简化认证信息
+     * @param user
+     * @return
+     */
+    @GetMapping("/me")
+    public Object getAuthenrication(@AuthenticationPrincipal UserDetails user) {
+        return user;
+    }
 
 
     @GetMapping("/ex")

@@ -31,6 +31,15 @@ public class ZSHAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucc
     @Autowired
     private ObjectMapper objectMapper;
 
+    /**
+     * 登陆成功后跳转到此，根据配置返回
+     *
+     * @param request
+     * @param response
+     * @param authentication
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
 

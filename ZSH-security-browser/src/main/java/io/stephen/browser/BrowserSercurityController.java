@@ -2,7 +2,6 @@ package io.stephen.browser;
 
 import io.stephen.core.exceptionHandle.CommonException;
 import io.stephen.core.properties.SecurityProperties;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * 处理需要权限但未认证的请求

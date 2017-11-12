@@ -32,9 +32,6 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        log.info("username ："+username);
-        log.info("password编码后："+passwordEncoder.encode("111111"));
-
         // UserDetails 四种状态其一为false则无法登陆
         return new User(username, passwordEncoder.encode("111111"),
                 true,true,true,true,
