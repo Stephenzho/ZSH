@@ -15,9 +15,16 @@ public class SecurityProperties {
 
     private LoginType loginType = LoginType.JSON;
 
+    private SocialProperties socialProperties = new SocialProperties();
 
 
+    public SocialProperties getSocialProperties() {
+        return socialProperties;
+    }
 
+    public void setSocialProperties(SocialProperties socialProperties) {
+        this.socialProperties = socialProperties;
+    }
 
     public String getLoginPath() {
         return loginPath;

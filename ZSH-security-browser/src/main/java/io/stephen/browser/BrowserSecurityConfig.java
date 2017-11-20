@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 /**
  * @author 10447
@@ -45,11 +46,16 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private ZSHAuthenticationSuccessHandler zshAuthenticationSuccessHandler;
 
+    @Autowired
+    private SpringSocialConfigurer zshSpringSocialConfigurer;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.formLogin()
+        http.apply(zshSpringSocialConfigurer)
+                .and().rememberMe()
+                .and().formLogin()
                 .loginProcessingUrl("/authentication/form")
                 .loginPage("/authentication/require")       // 未登陆时重定向到这url
                 .successHandler(zshAuthenticationSuccessHandler)

@@ -1,4 +1,4 @@
-package io.stephen.browser.service;
+package io.stephen.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SocialUserDetails;
+import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @since 2017/11/6
  */
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService, SocialUserDetailsService {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -33,9 +35,18 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         // UserDetails 四种状态其一为false则无法登陆
-        return new User(username, passwordEncoder.encode("111111"),
+        return buildUser(username);
+    }
+
+
+    @Override
+    public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        return (SocialUserDetails) buildUser(userId);
+    }
+
+    public UserDetails buildUser(String id) {
+        return  new User(id, passwordEncoder.encode("111111"),
                 true,true,true,true,
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
     }
-
 }
