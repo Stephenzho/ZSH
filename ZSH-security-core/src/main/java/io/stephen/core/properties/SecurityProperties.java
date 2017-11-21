@@ -15,16 +15,7 @@ public class SecurityProperties {
 
     private LoginType loginType = LoginType.JSON;
 
-    private SocialProperties socialProperties = new SocialProperties();
-
-
-    public SocialProperties getSocialProperties() {
-        return socialProperties;
-    }
-
-    public void setSocialProperties(SocialProperties socialProperties) {
-        this.socialProperties = socialProperties;
-    }
+    private SocialProperties social = new SocialProperties();
 
     public String getLoginPath() {
         return loginPath;
@@ -40,5 +31,13 @@ public class SecurityProperties {
 
     public void setLoginType(LoginType loginType) {
         this.loginType = loginType;
+    }
+
+    public SocialProperties getSocial() {
+        return social;
+    }
+
+    public void setSocial(SocialProperties social) {
+        this.social = social;
     }
 }

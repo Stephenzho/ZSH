@@ -16,7 +16,7 @@ import org.springframework.social.connect.ConnectionFactory;
  * @since 2017/11/20
  */
 @Configuration
-@ConditionalOnProperty(prefix = "security.social.qq", name = "appId")
+@ConditionalOnProperty(prefix = "ZSH.security.social.qq", name = "appId")
 public class QQAutoConfig extends SocialAutoConfigurerAdapter {
 
     @Autowired
@@ -24,9 +24,9 @@ public class QQAutoConfig extends SocialAutoConfigurerAdapter {
 
     @Override
     protected ConnectionFactory<?> createConnectionFactory() {
-        String providerId = securityProperties.getSocialProperties().getQqProperties().getProviderId();
-        String appId = securityProperties.getSocialProperties().getQqProperties().getAppId();
-        String appSecret = securityProperties.getSocialProperties().getQqProperties().getAppSecret();
+        String providerId = securityProperties.getSocial().getQqProperties().getProviderId();
+        String appId = securityProperties.getSocial().getQqProperties().getAppId();
+        String appSecret = securityProperties.getSocial().getQqProperties().getAppSecret();
 
 
         return new QQConnectionFactory(providerId,appId,appSecret);

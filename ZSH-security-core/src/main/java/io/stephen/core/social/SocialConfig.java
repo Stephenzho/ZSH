@@ -1,5 +1,6 @@
 package io.stephen.core.social;
 
+import io.stephen.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,9 @@ public class SocialConfig extends SocialConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private SecurityProperties securityProperties;
+
     /**
      * 不做加密
      * @param connectionFactoryLocator
@@ -37,9 +41,11 @@ public class SocialConfig extends SocialConfigurerAdapter {
         return new JdbcUsersConnectionRepository(dataSource,connectionFactoryLocator, Encryptors.noOpText());
     }
 
-
     @Bean
     public SpringSocialConfigurer ZSHSecuritySocialConfig() {
-        return new SpringSocialConfigurer();
+        String url = securityProperties.getSocial().getFilterProcessesUrl();
+
+        SpringSocialConfigurer s = new ZSHSpringSocialConfigurer(url);
+        return s;
     }
 }
