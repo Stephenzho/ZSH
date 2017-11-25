@@ -1,10 +1,12 @@
-package io.stephen.security.demo;
+package io.stephen.security.demo.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import io.stephen.core.exceptionHandle.CommonException;
-import io.stephen.security.dto.User;
+import io.stephen.security.demo.dto.User;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
@@ -20,6 +22,8 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class DemoController {
+    private Logger logger =  LoggerFactory.getLogger(getClass());
+
 
     /**
      * 返回认证信息,@AuthenticationPrincipal 简化认证信息
@@ -32,11 +36,22 @@ public class DemoController {
     }
 
 
-    @GetMapping("/ex")
-    public void testException() throws Exception {
-        throw new CommonException("1212","内部错误");
+    /**
+     * 注册用户
+     * @param user
+     */
+    @PostMapping("/regist")
+    public void regist(User user) {
+
+        logger.info("注册用户：{}", user);
     }
 
+
+    @GetMapping("/ex")
+    public void testException() throws Exception {
+
+        throw new CommonException("1212", "内部错误");
+    }
 
     /**
      * @param user

@@ -6,25 +6,31 @@ package io.stephen.core.properties;
 import org.springframework.boot.autoconfigure.social.SocialProperties;
 
 /**
- * QQ登录配置项
- * 
+ * 微信登录配置项
  * 
  *@author 10447
  *
  */
-public class QQProperties extends SocialProperties {
+public class WeixinProperties extends SocialProperties {
 	
 	/**
-	 * 第三方id，用来决定发起第三方登录的url，默认是 qq。
+	 * 第三方id，用来决定发起第三方登录的url，默认是 weixin。
 	 */
-	private String providerId = "qq";
+	private String providerId = "weixin";
 
+	/**
+	 * @return the providerId
+	 */
 	public String getProviderId() {
 		return providerId;
 	}
 
+	/**
+	 * @param providerId the providerId to set
+	 */
 	public void setProviderId(String providerId) {
 		this.providerId = providerId;
 	}
 	
+
 }

@@ -1,30 +1,46 @@
+/**
+ * 
+ */
 package io.stephen.core.properties;
 
 /**
- * @author 10447
- * @since 2017/11/20
+ * 社交登录配置项
+ *@author 10447
+ *
  */
 public class SocialProperties {
+	
+	/**
+	 * 社交登录功能拦截的url
+	 */
+	private String filterProcessesUrl = "/auth";
 
-    private QQProperties qqProperties = new QQProperties();
+	private QQProperties qq = new QQProperties();
+	
+	private WeixinProperties weixin = new WeixinProperties();
 
-    private String filterProcessesUrl = "/auth";
+	public QQProperties getQq() {
+		return qq;
+	}
 
+	public void setQq(QQProperties qq) {
+		this.qq = qq;
+	}
 
-    public QQProperties getQqProperties() {
-        return qqProperties;
-    }
+	public String getFilterProcessesUrl() {
+		return filterProcessesUrl;
+	}
 
-    public void setQqProperties(QQProperties qqProperties) {
-        this.qqProperties = qqProperties;
-    }
+	public void setFilterProcessesUrl(String filterProcessesUrl) {
+		this.filterProcessesUrl = filterProcessesUrl;
+	}
 
+	public WeixinProperties getWeixin() {
+		return weixin;
+	}
 
-    public String getFilterProcessesUrl() {
-        return filterProcessesUrl;
-    }
-
-    public void setFilterProcessesUrl(String filterProcessesUrl) {
-        this.filterProcessesUrl = filterProcessesUrl;
-    }
+	public void setWeixin(WeixinProperties weixin) {
+		this.weixin = weixin;
+	}
+	
 }

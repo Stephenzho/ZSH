@@ -24,9 +24,9 @@ public class QQAutoConfig extends SocialAutoConfigurerAdapter {
 
     @Override
     protected ConnectionFactory<?> createConnectionFactory() {
-        String providerId = securityProperties.getSocial().getQqProperties().getProviderId();
-        String appId = securityProperties.getSocial().getQqProperties().getAppId();
-        String appSecret = securityProperties.getSocial().getQqProperties().getAppSecret();
+        String providerId = securityProperties.getSocial().getQq().getProviderId();
+        String appId = securityProperties.getSocial().getQq().getAppId();
+        String appSecret = securityProperties.getSocial().getQq().getAppSecret();
 
 
         return new QQConnectionFactory(providerId,appId,appSecret);

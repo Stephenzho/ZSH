@@ -1,9 +1,8 @@
-package io.stephen.security.dto;
+package io.stephen.security.demo.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import io.stephen.security.validator.CustomizedValidator;
+import io.stephen.security.demo.validator.CustomizedValidator;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 

@@ -62,7 +62,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(zshAuthenticationFailureHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authentication/require",securityProperties.getLoginPath(),"/login","/authentication/form").permitAll()     // 去掉该url的认证布奏
+                .antMatchers("/authentication/require",securityProperties.getBrowser().getSignInPage(),"/login","/authentication/form",
+                        "/code/image").permitAll()     // 去掉该url的认证布奏
                 .anyRequest()
                 .authenticated()
                 .and().csrf().disable();

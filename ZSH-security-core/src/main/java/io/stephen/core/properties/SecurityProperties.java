@@ -1,43 +1,65 @@
+/**
+ * 
+ */
 package io.stephen.core.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * 读取ZSH.security开头的配置，在properties文件中
- * @author 10447
- * @since 2017/11/7
+ *@author 10447
+ *
  */
-@ConfigurationProperties(prefix = "ZSH.security")
+@ConfigurationProperties(prefix = "zsh.security")
 public class SecurityProperties {
+	
+	/**
+	 * 浏览器环境配置
+	 */
+	private BrowserProperties browser = new BrowserProperties();
+	/**
+	 * 验证码配置
+	 */
+	private ValidateCodeProperties code = new ValidateCodeProperties();
+	/**
+	 * 社交登录配置
+	 */
+	private SocialProperties social = new SocialProperties();
+	/**
+	 * OAuth2认证服务器配置
+	 */
+	private OAuth2Properties oauth2 = new OAuth2Properties();
 
-    private String loginPath = "/login.html";
+	public BrowserProperties getBrowser() {
+		return browser;
+	}
 
+	public void setBrowser(BrowserProperties browser) {
+		this.browser = browser;
+	}
 
-    private LoginType loginType = LoginType.JSON;
+	public ValidateCodeProperties getCode() {
+		return code;
+	}
 
-    private SocialProperties social = new SocialProperties();
+	public void setCode(ValidateCodeProperties code) {
+		this.code = code;
+	}
 
-    public String getLoginPath() {
-        return loginPath;
-    }
+	public SocialProperties getSocial() {
+		return social;
+	}
 
-    public void setLoginPath(String loginPath) {
-        this.loginPath = loginPath;
-    }
+	public void setSocial(SocialProperties social) {
+		this.social = social;
+	}
 
-    public LoginType getLoginType() {
-        return loginType;
-    }
+	public OAuth2Properties getOauth2() {
+		return oauth2;
+	}
 
-    public void setLoginType(LoginType loginType) {
-        this.loginType = loginType;
-    }
-
-    public SocialProperties getSocial() {
-        return social;
-    }
-
-    public void setSocial(SocialProperties social) {
-        this.social = social;
-    }
+	public void setOauth2(OAuth2Properties oauth2) {
+		this.oauth2 = oauth2;
+	}
+	
 }
+

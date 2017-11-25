@@ -1,4 +1,4 @@
-package io.stephen;
+package io.stephen.security.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -62,7 +62,7 @@ public class BrowserSercurityController {
         System.out.println(useragent);
 
         if (useragent.startsWith("Mozilla/5.0"))
-            redireStrategy.sendRedirect(request, response, securityProperties.getLoginPath());
+            redireStrategy.sendRedirect(request, response, securityProperties.getBrowser().getSignInPage());
         else
             throw new CommonException("401","请引导用户进行授权");
 

@@ -1,4 +1,4 @@
-package io.stephen.service;
+package io.stephen.security.demo.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

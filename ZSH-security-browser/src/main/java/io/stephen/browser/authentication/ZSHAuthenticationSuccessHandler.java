@@ -1,7 +1,7 @@
 package io.stephen.browser.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.stephen.core.properties.LoginType;
+import io.stephen.core.properties.LoginResponseType;
 import io.stephen.core.properties.SecurityProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +45,7 @@ public class ZSHAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucc
 
         log.info(authentication.getName()+"登陆成功");
 
-        if (securityProperties.getLoginType().equals(LoginType.JSON)) {
+        if (securityProperties.getBrowser().getSignInResponseType().equals(LoginResponseType.JSON)) {
             response.setContentType("application/json,charset=UTF-8");
             response.getWriter().write(objectMapper.writeValueAsString(authentication));
         }else{

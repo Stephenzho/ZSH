@@ -1,4 +1,4 @@
-package io.stephen.security.validator;
+package io.stephen.security.demo.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
