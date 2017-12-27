@@ -11,6 +11,11 @@ spring:
   application:
     name: user-client
 
+## 关闭security
+security:
+  basic:
+    enabled: false
+
 
 
 
