@@ -31,8 +31,7 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9090/eureka/
-eureka.healthcheck
+      defaultZone: http://180.76.237.201:9090/eureka/
 security:
   basic:
     enabled: false

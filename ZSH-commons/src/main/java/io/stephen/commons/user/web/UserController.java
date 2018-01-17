@@ -41,7 +41,7 @@ public class UserController {
         return (TokenUserDTO) authentication.getDetails();
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String addUser(){
 
         System.out.println("添加用户");
@@ -58,7 +58,10 @@ public class UserController {
     @GetMapping("/{id}")
     public User getUser(@PathVariable String id) throws Exception {
         System.out.println("获取用户ID为"+id+"的用户。");
-        throw new Exception("我日");
+        User u = new User();
+
+        u.setUserID(id);
+        return u;
     }
 
 

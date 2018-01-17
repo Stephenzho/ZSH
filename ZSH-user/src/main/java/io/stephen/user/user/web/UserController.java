@@ -20,6 +20,26 @@ public class UserController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
+
+    @GetMapping("/consumer")
+    public String LoadBalancedTest() {
+        return restTemplate.getForObject("http://COMMONS-CLIENT/dc",String.class);
+    }
+
+
+
+
+
+
+
+
+
+    /**
+     * RestTemplate的Demo
+     */
     @GetMapping("/dc")
     public String  userDetail() {
         RestTemplate restTemplate = new RestTemplate();

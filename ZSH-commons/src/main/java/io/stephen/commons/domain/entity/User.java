@@ -8,7 +8,7 @@ import java.util.List;
  * 用户Bean
  * @author zhouShuYi
  */
-public class User implements Serializable {
+public class User extends Throwable implements Serializable {
 
     private static final long serialVersionUID = 1435515995276255188L;
 
