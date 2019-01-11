@@ -1,4 +1,4 @@
-package io.stephen.security.demo.controller;
+package io.stephen.security.demo.web.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.IOUtils;

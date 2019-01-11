@@ -1,4 +1,4 @@
-package io.stephen.security.demo.controller;
+package io.stephen.security.demo.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import io.stephen.core.exceptionHandle.CommonException;
@@ -21,7 +21,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/user")
-public class DemoController {
+public class UserController {
     private Logger logger =  LoggerFactory.getLogger(getClass());
 
 

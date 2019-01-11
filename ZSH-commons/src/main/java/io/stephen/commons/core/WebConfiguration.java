@@ -1,13 +1,11 @@
 package io.stephen.commons.core;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,30 +23,15 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
      */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        // 默认UTF-8
-        FastJsonHttpMessageConverter jsonMessageConverter = new FastJsonHttpMessageConverter();
-        // 格式化日期
-        jsonMessageConverter.getFastJsonConfig().setDateFormat(JSON.DEFFAULT_DATE_FORMAT);
 
-        // 设置相应头
-        List<MediaType> jsonMediaTypes = new ArrayList<MediaType>();
-        jsonMediaTypes.add(MediaType.APPLICATION_JSON);
-        jsonMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+        GsonHttpMessageConverter gson = new GsonHttpMessageConverter();
+        List<MediaType> gsonSupportedMediaTypes  = gson.getSupportedMediaTypes();
 
-        jsonMessageConverter.setSupportedMediaTypes(jsonMediaTypes);
+        gsonSupportedMediaTypes.add(MediaType.APPLICATION_JSON);
+        gsonSupportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
 
-        converters.add(jsonMessageConverter);
+        converters.add(gson);
     }
-
-
-  /*  *//**
-     *  获取自定义转换器bean
-     * @return 自定义fastJson转换器
-     *//*
-    @Bean
-    public FastJsonHttpMessageConverter messageConverters(){
-        return jsonMessageConverter;
-    }*/
 
 
 }

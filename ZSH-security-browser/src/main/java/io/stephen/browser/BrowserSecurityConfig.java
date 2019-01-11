@@ -64,7 +64,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/authentication/require",securityProperties.getBrowser().getSignInPage(),"/login","/authentication/form",
                         "/code/image").permitAll()     // 去掉该url的认证布奏
+                //任何请求
                 .anyRequest()
+                //都需要安全认证
                 .authenticated()
                 .and().csrf().disable();
 

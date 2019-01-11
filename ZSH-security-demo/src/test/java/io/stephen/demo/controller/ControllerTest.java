@@ -1,7 +1,7 @@
 package io.stephen.demo.controller;
 
-import io.stephen.security.demo.controller.DemoController;
-import io.stephen.security.demo.controller.FileController;
+import io.stephen.security.demo.web.controller.UserController;
+import io.stephen.security.demo.web.controller.FileController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @since 2017/10/29
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {DemoController.class, FileController.class})
+@SpringBootTest(classes = {UserController.class, FileController.class})
 public class ControllerTest {
 
     @Autowired
