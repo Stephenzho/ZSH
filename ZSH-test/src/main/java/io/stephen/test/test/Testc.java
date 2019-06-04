@@ -2,39 +2,31 @@ package io.stephen.test.test;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author 10447
  * @since 2018/3/6
  */
-public class Testc {
-
-    public static int minimumTotal(List<List<Integer>> triangle) {
-
-        if (triangle == null || triangle.size() == 0){
-            return 0;
-        }
-        // 加1可以不用初始化最后一层
-        int[][] dp = new int[triangle.size() + 1][triangle.size() + 1];
-
-        for (int i = triangle.size() - 1; i >= 0; i--) {
-
-            List<Integer> curTr = triangle.get(i);
-            for (int j = 0; j < curTr.size(); j++) {
-                dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + curTr.get(j);
-            }
-        }
-        return dp[0][0];
-    }
-
-
+public class Testc  {
 
     public static void main(String[] args) {
 
+        System.out.println(fun(10, 0));
 
     }
 
-
+    /**
+     * @param n 递归的次数，例10
+     * @param a 初始值，0
+     * @return
+     */
+    public static int fun(int n, int a) {
+        if (n <= 0) {
+            return a;
+        }
+        a += 2;
+        n--;
+        return fun(n, a);
+    }
 
 }

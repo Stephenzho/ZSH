@@ -21,7 +21,7 @@ import java.lang.reflect.Type;
  * @author 10447
  * @since 2018/4/16
  */
-@RestControllerAdvice(basePackages = "io.stephen.test.web")
+@RestControllerAdvice(basePackages = "io.stephen.test.controller")
 public class MyRequestBodyAdvice  implements RequestBodyAdvice {
     private static final Logger logger = LoggerFactory.getLogger(MyRequestBodyAdvice.class);
 

@@ -6,7 +6,7 @@
         <!--<artifactId>ZSH-parent</artifactId>-->
         <!--<groupId>io.stephen.ZSH</groupId>-->
         <!--<version>1.0.0-SNAPSHOT</version>-->
-        <!--<relativePath>../ZSH-parent/pom.xml</relativePath>-->
+        <!-- -->
     <!--</parent>-->
 
     <parent>

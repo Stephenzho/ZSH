@@ -1,20 +1,11 @@
 server:
   port: 8081
-  context-path: /
-eureka:
-  client:
-    ##指定服务注册中心的位置
-    service-url:
-      defaultZone: http://180.76.237.201:9090/eureka/
+
 
 spring:
   application:
     name: user-client
 
-## 关闭security
-security:
-  basic:
-    enabled: false
 
 
 

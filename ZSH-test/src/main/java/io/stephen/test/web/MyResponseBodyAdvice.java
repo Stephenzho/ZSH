@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author 10447
  * @since 2018/4/16
  */
-@RestControllerAdvice(basePackages = "io.stephen.test.web")
+@RestControllerAdvice(basePackages = "io.stephen.test.controller")
 public class MyResponseBodyAdvice  implements ResponseBodyAdvice {
 
 

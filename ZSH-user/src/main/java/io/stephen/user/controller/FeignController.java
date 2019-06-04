@@ -1,7 +1,5 @@
-package io.stephen.user.user.web;
+package io.stephen.user.controller;
 
-import io.stephen.user.Commons;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,13 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignController {
 
-    @Autowired
-    private Commons commons;
+
 
 
     @GetMapping("/fei")
     public String fei() {
-        return commons.dc();
+        return "Feign";
     }
 
 
